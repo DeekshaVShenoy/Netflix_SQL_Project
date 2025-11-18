@@ -21,7 +21,7 @@ The data for this project is sourced from the Kaggle dataset:
 ## Schema
 -----Create a database
 ```SQL
-create database Netflix
+Create database Netflix
 use Netflix
 
 -----Create a table
@@ -139,13 +139,14 @@ WITH (
 
 ### 10.Find each year and the average numbers of content release in India on netflix. 
 return top 5 year with highest avg content release!
+```SQL
   select TOP 5 release_year[Year],
   count(*)[Total] from movies 
   cross apply string_split(country,',')[nc]
   where ltrim(rtrim(nc.value))='India'
   group by release_year
   order by Total desc
-
+```
 **Objective:** Calculate and rank years by the average number of content releases by India.
 
 ### 11. List All Movies that are Documentaries
@@ -160,7 +161,8 @@ return top 5 year with highest avg content release!
 
 **Objective:** List content that does not have a director.
 
-### 15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
+### 13. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
+```SQL
  select category,count(*)[Total]
   from 
   	(
@@ -173,7 +175,7 @@ return top 5 year with highest avg content release!
   	) as c
   group by category
   order by Total desc
-  
+  ```
 **Objective:** Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
 
 ## Findings and Conclusion

@@ -20,6 +20,7 @@ The data for this project is sourced from the Kaggle dataset:
 
 ## Schema
 -----Create a database
+```SQL
 create database Netflix
 use Netflix
 
@@ -49,7 +50,7 @@ WITH (
     FIRSTROW = 2
 );
 
-
+```
 ## Business Problems and Solutions
 
 ### 1. Count the Number of Movies vs TV Shows
